@@ -35,7 +35,7 @@ Os testes usam cópias temporárias dos JSONs e não modificam `data/`.
 
 ## Insomnia
 
-Importe o arquivo [insomnia.json](./insomnia.json) no Insomnia (`Import > File`). Para testar a API hospedada, defina `base_url` no ambiente como `https://mini-dashboard-api-production.up.railway.app` (sempre com HTTPS). Execute **Login — Desenvolvedor**, copie o valor de `accessToken` retornado e cole-o na variável `token`. As demais requisições autenticadas passarão a usar o token automaticamente.
+Importe o arquivo [insomnia.json](./insomnia.json) no Insomnia (`Import > File`). Para testar a API hospedada, defina `base_url` no ambiente como `https://mini-dashboard-api-production.up.railway.app` (sempre com HTTPS). A coleção possui somente **Login — Desenvolvedor**; cada rota protegida usa Bearer Token com **Response → Body Attribute**, filtro `$.accessToken` e gatilho **Always**, portanto o token é obtido automaticamente antes da chamada.
 
 ## Usuários de teste
 
