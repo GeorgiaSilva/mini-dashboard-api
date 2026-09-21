@@ -69,20 +69,35 @@ func TestProtectedWithoutToken(t *testing.T) {
 		t.Fatalf("got %d", w.Code)
 	}
 }
+func TestDirectorCannotAccessUsers(t *testing.T) {
+	app := testApp(t)
+	w := call(t, app, "GET", "/users", loginToken(t, app, "diretor@empresa.com", "123456"), "")
+	if w.Code != 403 {
+		t.Fatalf("got %d", w.Code)
+	}
+}
 func TestSalesFilter(t *testing.T) {
 	app := testApp(t)
 	w := call(t, app, "GET", "/sales?brand=VISA&status=APPROVED", loginToken(t, app, "dev@empresa.com", "123456"), "")
 	if w.Code != 200 {
 		t.Fatalf("got %d", w.Code)
 	}
+	body := w.Body.Bytes()
 	var x struct {
 		Summary struct {
 			TotalSales int `json:"totalSales"`
 		} `json:"summary"`
 	}
-	json.NewDecoder(w.Body).Decode(&x)
+	json.Unmarshal(body, &x)
 	if x.Summary.TotalSales == 0 {
 		t.Fatal("expected filtered sales")
+	}
+	var raw map[string]any
+	if err := json.Unmarshal(body, &raw); err != nil {
+		t.Fatal(err)
+	}
+	if _, exists := raw["pagination"]; exists {
+		t.Fatal("sales response must not contain pagination")
 	}
 }
 func TestCreateAndUpdateUser(t *testing.T) {

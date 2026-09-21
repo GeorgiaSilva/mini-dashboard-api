@@ -68,11 +68,6 @@ func (h SalesHandler) List(w http.ResponseWriter, r *http.Request) {
 		BadRequest(w, "Filtros de vendas inválidos.")
 		return
 	}
-	page, limit, ok := Page(r)
-	if !ok {
-		BadRequest(w, "Paginação inválida.")
-		return
-	}
 	total := 0.0
 	approved, cancelled := 0, 0
 	for _, sale := range all {
@@ -84,16 +79,8 @@ func (h SalesHandler) List(w http.ResponseWriter, r *http.Request) {
 			cancelled++
 		}
 	}
-	from := (page - 1) * limit
-	if from > len(all) {
-		from = len(all)
-	}
-	to := from + limit
-	if to > len(all) {
-		to = len(all)
-	}
 	groups := []map[string]any{}
-	for _, sale := range all[from:to] {
+	for _, sale := range all {
 		date := sale.CreatedAt.Format("2006-01-02")
 		if len(groups) == 0 || groups[len(groups)-1]["date"] != date {
 			groups = append(groups, map[string]any{"date": date, "totalAmount": 0.0, "totalSales": 0, "sales": []models.SaleView{}})
@@ -104,9 +91,8 @@ func (h SalesHandler) List(w http.ResponseWriter, r *http.Request) {
 		group["sales"] = append(group["sales"].([]models.SaleView), sale.View())
 	}
 	JSON(w, 200, map[string]any{
-		"summary":    map[string]any{"totalAmount": round(total), "totalSales": len(all), "approvedSales": approved, "cancelledSales": cancelled},
-		"groups":     groups,
-		"pagination": map[string]int{"page": page, "limit": limit, "totalItems": len(all), "totalPages": pages(len(all), limit)},
+		"summary": map[string]any{"totalAmount": round(total), "totalSales": len(all), "approvedSales": approved, "cancelledSales": cancelled},
+		"groups":  groups,
 	})
 }
 

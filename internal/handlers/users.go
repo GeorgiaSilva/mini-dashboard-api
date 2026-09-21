@@ -24,11 +24,6 @@ func (h UsersHandler) List(w http.ResponseWriter, r *http.Request) {
 		middleware.Error(w, 500, "INTERNAL_ERROR", "Não foi possível processar a solicitação.")
 		return
 	}
-	p, l, ok := Page(r)
-	if !ok {
-		BadRequest(w, "Paginação inválida.")
-		return
-	}
 	q := r.URL.Query()
 	search, role := strings.ToLower(q.Get("search")), q.Get("role")
 	activeFilter := q.Get("active")
@@ -47,21 +42,7 @@ func (h UsersHandler) List(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	sort.Slice(out, func(i, j int) bool { return out[i].ID < out[j].ID })
-	start := (p - 1) * l
-	if start > len(out) {
-		start = len(out)
-	}
-	end := start + l
-	if end > len(out) {
-		end = len(out)
-	}
-	JSON(w, 200, map[string]any{"items": out[start:end], "pagination": map[string]int{"page": p, "limit": l, "totalItems": len(out), "totalPages": pages(len(out), l)}})
-}
-func pages(total, limit int) int {
-	if total == 0 {
-		return 0
-	}
-	return (total + limit - 1) / limit
+	JSON(w, 200, map[string]any{"items": out})
 }
 func (h UsersHandler) Get(w http.ResponseWriter, r *http.Request) {
 	id, ok := ID(r.URL.Path)

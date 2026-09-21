@@ -29,24 +29,6 @@ func ID(path string) (int, bool) {
 	n, e := strconv.Atoi(parts[len(parts)-1])
 	return n, e == nil && n > 0
 }
-func Page(r *http.Request) (int, int, bool) {
-	q := r.URL.Query()
-	p, l := 1, 20
-	var e error
-	if q.Get("page") != "" {
-		p, e = strconv.Atoi(q.Get("page"))
-		if e != nil || p < 1 {
-			return 0, 0, false
-		}
-	}
-	if q.Get("limit") != "" {
-		l, e = strconv.Atoi(q.Get("limit"))
-		if e != nil || l < 1 || l > 100 {
-			return 0, 0, false
-		}
-	}
-	return p, l, true
-}
 func Date(q string) (time.Time, bool) {
 	if q == "" {
 		return time.Time{}, true

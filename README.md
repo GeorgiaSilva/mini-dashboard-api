@@ -94,12 +94,12 @@ O `DELETE` de usuário é lógico (`active: false`). Não há cadastro público.
 ## Filtros e exemplos
 
 ```text
-GET /sales?startDate=2026-09-01&endDate=2026-09-30&brand=VISA&publicEntityId=2&status=APPROVED&page=1&limit=20
-GET /users?search=maria&role=DEVELOPER&active=true&page=1&limit=10
+GET /sales?startDate=2026-09-01&endDate=2026-09-30&brand=VISA&publicEntityId=2&status=APPROVED
+GET /users?search=maria&role=DEVELOPER&active=true
 GET /dashboard?startDate=2026-09-01&endDate=2026-09-30
 ```
 
-Datas usam `YYYY-MM-DD`. Os limites vão de 1 a 100. Vendas são retornadas da mais recente para a mais antiga e os cálculos de resumo levam em conta somente os registros filtrados.
+Datas usam `YYYY-MM-DD`. Vendas são retornadas da mais recente para a mais antiga e os cálculos de resumo levam em conta somente os registros filtrados.
 
 Exemplo de criação de usuário:
 
@@ -109,7 +109,7 @@ Exemplo de criação de usuário:
 
 ## Formato de resposta
 
-`GET /sales` retorna `summary`, `groups` e `pagination`. Cada grupo possui `date`, `totalAmount`, `totalSales` e `sales`. O dashboard calcula receita bruta a partir de vendas aprovadas, receita líquida como 90% dela e evita divisão por zero.
+`GET /sales` retorna `summary` e `groups`. Cada grupo possui `date`, `totalAmount`, `totalSales` e `sales`. O dashboard calcula receita bruta a partir de vendas aprovadas, receita líquida como 90% dela e evita divisão por zero.
 
 Falhas têm sempre a mesma forma:
 
