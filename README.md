@@ -91,6 +91,12 @@ A resposta traz `accessToken` e o usuário sem senha. O CPF deve usar obrigatori
 
 O `DELETE` de usuário é lógico (`active: false`). Não há cadastro público. E-mail é único, e um desenvolvedor não pode desativar a própria conta. Vendas vêm de outro produto de pagamentos e são somente leitura nesta API.
 
+Ao alterar uma senha, a API responde com `200 OK`:
+
+```json
+{"message":"Senha alterada com sucesso."}
+```
+
 ## Filtros e exemplos
 
 ```text

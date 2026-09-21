@@ -239,7 +239,7 @@ func (h UsersHandler) Password(w http.ResponseWriter, r *http.Request) {
 		middleware.Error(w, 500, "INTERNAL_ERROR", "Não foi possível processar a solicitação.")
 		return
 	}
-	w.WriteHeader(204)
+	JSON(w, http.StatusOK, map[string]string{"message": "Senha alterada com sucesso."})
 }
 func (h UsersHandler) Delete(w http.ResponseWriter, r *http.Request) {
 	id, ok := ID(r.URL.Path)

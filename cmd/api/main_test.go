@@ -129,6 +129,26 @@ func TestDuplicateEmail(t *testing.T) {
 		t.Fatalf("got %d", w.Code)
 	}
 }
+func TestChangePasswordReturnsSuccessMessage(t *testing.T) {
+	app := testApp(t)
+	jwt := loginToken(t, app, "529.982.247-25", "123456")
+	w := call(t, app, "PATCH", "/users/2/password", jwt, `{"password":"654321"}`)
+	if w.Code != 200 {
+		t.Fatalf("got %d", w.Code)
+	}
+	var body struct {
+		Message string `json:"message"`
+	}
+	if err := json.Unmarshal(w.Body.Bytes(), &body); err != nil {
+		t.Fatal(err)
+	}
+	if body.Message != "Senha alterada com sucesso." {
+		t.Fatalf("unexpected message: %q", body.Message)
+	}
+	if w = call(t, app, "POST", "/auth/login", "", `{"cpf":"111.444.777-35","password":"654321"}`); w.Code != 200 {
+		t.Fatalf("new password login got %d", w.Code)
+	}
+}
 func TestInactiveUserCannotLogin(t *testing.T) {
 	app := testApp(t)
 	jwt := loginToken(t, app, "529.982.247-25", "123456")
