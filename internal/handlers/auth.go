@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"net/http"
-	"strings"
 
 	"golang.org/x/crypto/bcrypt"
 	"nivelador-api/internal/middleware"
+	"nivelador-api/internal/models"
 	"nivelador-api/internal/repository"
 )
 
@@ -16,11 +16,11 @@ type AuthHandler struct {
 
 func (h AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 	var in struct {
-		Email    string `json:"email"`
+		CPF      string `json:"cpf"`
 		Password string `json:"password"`
 	}
-	if Decode(r, &in) != nil || strings.TrimSpace(in.Email) == "" || in.Password == "" {
-		BadRequest(w, "E-mail e senha são obrigatórios.")
+	if Decode(r, &in) != nil || !models.ValidCPF(in.CPF) || in.Password == "" {
+		BadRequest(w, "CPF válido e senha são obrigatórios.")
 		return
 	}
 	users, e := h.Repo.Users()
@@ -29,7 +29,7 @@ func (h AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	for _, u := range users {
-		if strings.EqualFold(u.Email, strings.TrimSpace(in.Email)) {
+		if models.NormalizeCPF(u.CPF) == models.NormalizeCPF(in.CPF) {
 			if !u.Active || bcrypt.CompareHashAndPassword([]byte(u.PasswordHash), []byte(in.Password)) != nil {
 				break
 			}
@@ -42,7 +42,7 @@ func (h AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	middleware.Error(w, 401, "INVALID_CREDENTIALS", "E-mail ou senha inválidos.")
+	middleware.Error(w, 401, "INVALID_CREDENTIALS", "CPF ou senha inválidos.")
 }
 func (h AuthHandler) Me(w http.ResponseWriter, r *http.Request) {
 	u, _ := middleware.UserFromContext(r.Context())

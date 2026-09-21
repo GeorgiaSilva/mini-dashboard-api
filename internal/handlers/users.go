@@ -15,8 +15,8 @@ import (
 
 type UsersHandler struct{ Repo *repository.Repository }
 
-func userValid(name, email, role string) bool {
-	return strings.TrimSpace(name) != "" && strings.Contains(email, "@") && models.Contains(models.Roles, role)
+func userValid(name, cpf, email, role string) bool {
+	return strings.TrimSpace(name) != "" && models.ValidCPF(cpf) && strings.Contains(email, "@") && models.Contains(models.Roles, role)
 }
 func (h UsersHandler) List(w http.ResponseWriter, r *http.Request) {
 	all, e := h.Repo.Users()
@@ -37,7 +37,7 @@ func (h UsersHandler) List(w http.ResponseWriter, r *http.Request) {
 	}
 	out := []models.PublicUser{}
 	for _, u := range all {
-		if (search == "" || strings.Contains(strings.ToLower(u.Name+" "+u.Email), search)) && (role == "" || u.Role == role) && (activeFilter == "" || (activeFilter == "true") == u.Active) {
+		if (search == "" || strings.Contains(strings.ToLower(u.Name+" "+u.CPF+" "+u.Email), search)) && (role == "" || u.Role == role) && (activeFilter == "" || (activeFilter == "true") == u.Active) {
 			out = append(out, u.Public())
 		}
 	}
@@ -66,13 +66,14 @@ func (h UsersHandler) Get(w http.ResponseWriter, r *http.Request) {
 func (h UsersHandler) Create(w http.ResponseWriter, r *http.Request) {
 	var in struct {
 		Name     string `json:"name"`
+		CPF      string `json:"cpf"`
 		Email    string `json:"email"`
 		Password string `json:"password"`
 		Role     string `json:"role"`
 		Active   *bool  `json:"active"`
 	}
-	if Decode(r, &in) != nil || !userValid(in.Name, in.Email, in.Role) || len(in.Password) < 6 {
-		BadRequest(w, "Nome, e-mail, senha (mínimo 6) e perfil válidos são obrigatórios.")
+	if Decode(r, &in) != nil || !userValid(in.Name, in.CPF, in.Email, in.Role) || len(in.Password) < 6 {
+		BadRequest(w, "Nome, CPF válido, e-mail, senha (mínimo 6) e perfil válidos são obrigatórios.")
 		return
 	}
 	var created models.User
@@ -80,6 +81,9 @@ func (h UsersHandler) Create(w http.ResponseWriter, r *http.Request) {
 		for _, u := range all {
 			if strings.EqualFold(u.Email, in.Email) {
 				return nil, errors.New("duplicate")
+			}
+			if models.NormalizeCPF(u.CPF) == models.NormalizeCPF(in.CPF) {
+				return nil, errors.New("duplicate_cpf")
 			}
 		}
 		hash, e := bcrypt.GenerateFromPassword([]byte(in.Password), bcrypt.DefaultCost)
@@ -97,12 +101,14 @@ func (h UsersHandler) Create(w http.ResponseWriter, r *http.Request) {
 			active = *in.Active
 		}
 		now := time.Now().UTC()
-		created = models.User{ID: id + 1, Name: strings.TrimSpace(in.Name), Email: strings.TrimSpace(in.Email), PasswordHash: string(hash), Role: in.Role, Active: active, CreatedAt: now, UpdatedAt: now}
+		created = models.User{ID: id + 1, Name: strings.TrimSpace(in.Name), CPF: in.CPF, Email: strings.TrimSpace(in.Email), PasswordHash: string(hash), Role: in.Role, Active: active, CreatedAt: now, UpdatedAt: now}
 		return append(all, created), nil
 	})
 	if e != nil {
 		if e.Error() == "duplicate" {
 			middleware.Error(w, 409, "EMAIL_ALREADY_EXISTS", "E-mail já está em uso.")
+		} else if e.Error() == "duplicate_cpf" {
+			middleware.Error(w, 409, "CPF_ALREADY_EXISTS", "CPF já está em uso.")
 		} else {
 			middleware.Error(w, 500, "INTERNAL_ERROR", "Não foi possível processar a solicitação.")
 		}
@@ -118,15 +124,16 @@ func (h UsersHandler) Patch(w http.ResponseWriter, r *http.Request) {
 	}
 	var in struct {
 		Name   *string `json:"name"`
+		CPF    *string `json:"cpf"`
 		Email  *string `json:"email"`
 		Role   *string `json:"role"`
 		Active *bool   `json:"active"`
 	}
-	if Decode(r, &in) != nil || (in.Name == nil && in.Email == nil && in.Role == nil && in.Active == nil) {
+	if Decode(r, &in) != nil || (in.Name == nil && in.CPF == nil && in.Email == nil && in.Role == nil && in.Active == nil) {
 		BadRequest(w, "Informe ao menos um campo para atualizar.")
 		return
 	}
-	if (in.Name != nil && strings.TrimSpace(*in.Name) == "") || (in.Email != nil && !strings.Contains(*in.Email, "@")) || (in.Role != nil && !models.Contains(models.Roles, *in.Role)) {
+	if (in.Name != nil && strings.TrimSpace(*in.Name) == "") || (in.CPF != nil && !models.ValidCPF(*in.CPF)) || (in.Email != nil && !strings.Contains(*in.Email, "@")) || (in.Role != nil && !models.Contains(models.Roles, *in.Role)) {
 		BadRequest(w, "Dados de usuário inválidos.")
 		return
 	}
@@ -146,6 +153,14 @@ func (h UsersHandler) Patch(w http.ResponseWriter, r *http.Request) {
 					}
 				}
 				all[i].Email = strings.TrimSpace(*in.Email)
+			}
+			if in.CPF != nil {
+				for _, u := range all {
+					if u.ID != id && models.NormalizeCPF(u.CPF) == models.NormalizeCPF(*in.CPF) {
+						return nil, errors.New("duplicate_cpf")
+					}
+				}
+				all[i].CPF = *in.CPF
 			}
 			if in.Name != nil {
 				all[i].Name = strings.TrimSpace(*in.Name)
@@ -176,6 +191,8 @@ func (h UsersHandler) Patch(w http.ResponseWriter, r *http.Request) {
 		default:
 			if e.Error() == "duplicate" {
 				middleware.Error(w, 409, "EMAIL_ALREADY_EXISTS", "E-mail já está em uso.")
+			} else if e.Error() == "duplicate_cpf" {
+				middleware.Error(w, 409, "CPF_ALREADY_EXISTS", "CPF já está em uso.")
 			} else if e.Error() == "self" {
 				middleware.Error(w, 400, "SELF_DEACTIVATION", "Você não pode desativar sua própria conta.")
 			} else {

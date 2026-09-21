@@ -39,14 +39,14 @@ Importe o arquivo [insomnia.json](./insomnia.json) no Insomnia (`Import > File`)
 
 ## Usuários de teste
 
-Todos usam a senha `123456` (armazenada como hash bcrypt no arquivo).
+Todos usam a senha `123456` (armazenada como hash bcrypt no arquivo). Os CPFs abaixo são fictícios e servem somente para teste.
 
-| Nome | E-mail | Perfil |
-|---|---|---|
-| Desenvolvedor | dev@empresa.com | DEVELOPER |
-| Maria Desenvolvedora | maria.dev@empresa.com | DIRECTOR |
-| Carlos Diretor | diretor@empresa.com | DIRECTOR |
-| Ana Diretora | ana.diretora@empresa.com | DIRECTOR |
+| Nome | CPF | E-mail | Perfil |
+|---|---|---|---|
+| Desenvolvedor | 529.982.247-25 | dev@empresa.com | DEVELOPER |
+| Maria Desenvolvedora | 111.444.777-35 | maria.dev@empresa.com | DIRECTOR |
+| Carlos Diretor | 935.411.347-80 | diretor@empresa.com | DIRECTOR |
+| Ana Diretora | 168.995.350-09 | ana.diretora@empresa.com | DIRECTOR |
 
 | Recurso | DEVELOPER | DIRECTOR |
 |---|---|---|
@@ -65,10 +65,10 @@ Authorization: Bearer SEU_TOKEN
 ```bash
 curl -X POST http://localhost:8080/auth/login \
   -H 'Content-Type: application/json' \
-  -d '{"email":"dev@empresa.com","password":"123456"}'
+  -d '{"cpf":"529.982.247-25","password":"123456"}'
 ```
 
-A resposta traz `accessToken` e o usuário sem senha. O JWT contém `sub`, `name`, `email`, `role`, `iat` e `exp`, dura uma hora e nunca inclui a senha. `GET /auth/me` consulta o usuário atual no arquivo, assim refletindo mudanças recentes de perfil ou status.
+A resposta traz `accessToken` e o usuário sem senha. O CPF deve usar obrigatoriamente o formato `000.000.000-00`. O JWT contém `sub`, `name`, `email`, `role`, `iat` e `exp`, dura uma hora e nunca inclui senha nem CPF. `GET /auth/me` consulta o usuário atual no arquivo, assim refletindo mudanças recentes de perfil ou status.
 
 ## Rotas
 
@@ -104,7 +104,7 @@ Datas usam `YYYY-MM-DD`. Vendas são retornadas da mais recente para a mais anti
 Exemplo de criação de usuário:
 
 ```json
-{"name":"Novo usuário","email":"novo@empresa.com","password":"123456","role":"DIRECTOR"}
+{"name":"Novo usuário","cpf":"123.456.789-09","email":"novo@empresa.com","password":"123456","role":"DIRECTOR"}
 ```
 
 ## Formato de resposta

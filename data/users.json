@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Desenvolvedor",
+    "cpf": "529.982.247-25",
     "email": "dev@empresa.com",
     "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
     "role": "DEVELOPER",
@@ -12,6 +13,7 @@
   {
     "id": 2,
     "name": "Maria Desenvolvedora",
+    "cpf": "111.444.777-35",
     "email": "maria.dev@empresa.com",
     "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
     "role": "DIRECTOR",
@@ -22,6 +24,7 @@
   {
     "id": 3,
     "name": "Carlos Diretor",
+    "cpf": "935.411.347-80",
     "email": "diretor@empresa.com",
     "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
     "role": "DIRECTOR",
@@ -32,6 +35,7 @@
   {
     "id": 4,
     "name": "Ana Diretora",
+    "cpf": "168.995.350-09",
     "email": "ana.diretora@empresa.com",
     "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
     "role": "DIRECTOR",
