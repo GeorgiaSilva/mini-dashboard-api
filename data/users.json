@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Desenvolvedor",
+    "email": "dev@empresa.com",
+    "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
+    "role": "DEVELOPER",
+    "active": true,
+    "createdAt": "2026-09-01T12:00:00Z",
+    "updatedAt": "2026-09-01T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "Maria Desenvolvedora",
+    "email": "maria.dev@empresa.com",
+    "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
+    "role": "DIRECTOR",
+    "active": true,
+    "createdAt": "2026-09-01T12:00:00Z",
+    "updatedAt": "2026-09-21T15:51:58.752876696Z"
+  },
+  {
+    "id": 3,
+    "name": "Carlos Diretor",
+    "email": "diretor@empresa.com",
+    "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
+    "role": "DIRECTOR",
+    "active": true,
+    "createdAt": "2026-09-01T12:00:00Z",
+    "updatedAt": "2026-09-01T12:00:00Z"
+  },
+  {
+    "id": 4,
+    "name": "Ana Diretora",
+    "email": "ana.diretora@empresa.com",
+    "passwordHash": "$2b$12$SdoWvekCC6L1.9Gr1KRzQO8ChLaRNsfR4CJ1I3/pgxaNqjEu7/Prm",
+    "role": "DIRECTOR",
+    "active": true,
+    "createdAt": "2026-09-01T12:00:00Z",
+    "updatedAt": "2026-09-01T12:00:00Z"
+  }
+]

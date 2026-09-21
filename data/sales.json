@@ -1,0 +1,626 @@
+[
+  {
+    "id": 101,
+    "transactionCode": "TX-20260901-001",
+    "amount": 120.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-01T09:30:00Z",
+    "updatedAt": "2026-09-01T09:30:00Z"
+  },
+  {
+    "id": 102,
+    "transactionCode": "TX-20260902-002",
+    "amount": 157.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-02T10:30:00Z",
+    "updatedAt": "2026-09-02T10:30:00Z"
+  },
+  {
+    "id": 103,
+    "transactionCode": "TX-20260903-003",
+    "amount": 195,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-03T11:30:00Z",
+    "updatedAt": "2026-09-03T11:30:00Z"
+  },
+  {
+    "id": 104,
+    "transactionCode": "TX-20260904-004",
+    "amount": 232.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-04T12:30:00Z",
+    "updatedAt": "2026-09-04T12:30:00Z"
+  },
+  {
+    "id": 105,
+    "transactionCode": "TX-20260905-005",
+    "amount": 269.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-05T13:30:00Z",
+    "updatedAt": "2026-09-05T13:30:00Z"
+  },
+  {
+    "id": 106,
+    "transactionCode": "TX-20260906-006",
+    "amount": 306.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-06T14:30:00Z",
+    "updatedAt": "2026-09-06T14:30:00Z"
+  },
+  {
+    "id": 107,
+    "transactionCode": "TX-20260907-007",
+    "amount": 344,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-07T15:30:00Z",
+    "updatedAt": "2026-09-07T15:30:00Z"
+  },
+  {
+    "id": 108,
+    "transactionCode": "TX-20260908-008",
+    "amount": 381.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-08T16:30:00Z",
+    "updatedAt": "2026-09-08T16:30:00Z"
+  },
+  {
+    "id": 109,
+    "transactionCode": "TX-20260909-009",
+    "amount": 418.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-09T09:30:00Z",
+    "updatedAt": "2026-09-09T09:30:00Z"
+  },
+  {
+    "id": 110,
+    "transactionCode": "TX-20260910-010",
+    "amount": 455.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-10T10:30:00Z",
+    "updatedAt": "2026-09-10T10:30:00Z"
+  },
+  {
+    "id": 111,
+    "transactionCode": "TX-20260911-011",
+    "amount": 493,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-11T11:30:00Z",
+    "updatedAt": "2026-09-11T11:30:00Z"
+  },
+  {
+    "id": 112,
+    "transactionCode": "TX-20260912-012",
+    "amount": 530.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-12T12:30:00Z",
+    "updatedAt": "2026-09-12T12:30:00Z"
+  },
+  {
+    "id": 113,
+    "transactionCode": "TX-20260913-013",
+    "amount": 567.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-13T13:30:00Z",
+    "updatedAt": "2026-09-13T13:30:00Z"
+  },
+  {
+    "id": 114,
+    "transactionCode": "TX-20260914-014",
+    "amount": 604.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-14T14:30:00Z",
+    "updatedAt": "2026-09-14T14:30:00Z"
+  },
+  {
+    "id": 115,
+    "transactionCode": "TX-20260915-015",
+    "amount": 642,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-15T15:30:00Z",
+    "updatedAt": "2026-09-15T15:30:00Z"
+  },
+  {
+    "id": 116,
+    "transactionCode": "TX-20260916-016",
+    "amount": 679.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-16T16:30:00Z",
+    "updatedAt": "2026-09-16T16:30:00Z"
+  },
+  {
+    "id": 117,
+    "transactionCode": "TX-20260917-017",
+    "amount": 716.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-17T09:30:00Z",
+    "updatedAt": "2026-09-17T09:30:00Z"
+  },
+  {
+    "id": 118,
+    "transactionCode": "TX-20260918-018",
+    "amount": 753.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-18T10:30:00Z",
+    "updatedAt": "2026-09-18T10:30:00Z"
+  },
+  {
+    "id": 119,
+    "transactionCode": "TX-20260919-019",
+    "amount": 791,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-19T11:30:00Z",
+    "updatedAt": "2026-09-19T11:30:00Z"
+  },
+  {
+    "id": 120,
+    "transactionCode": "TX-20260920-020",
+    "amount": 828.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-20T12:30:00Z",
+    "updatedAt": "2026-09-20T12:30:00Z"
+  },
+  {
+    "id": 121,
+    "transactionCode": "TX-20260921-021",
+    "amount": 865.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-21T13:30:00Z",
+    "updatedAt": "2026-09-21T13:30:00Z"
+  },
+  {
+    "id": 122,
+    "transactionCode": "TX-20260922-022",
+    "amount": 902.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-22T14:30:00Z",
+    "updatedAt": "2026-09-22T14:30:00Z"
+  },
+  {
+    "id": 123,
+    "transactionCode": "TX-20260923-023",
+    "amount": 940,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-23T15:30:00Z",
+    "updatedAt": "2026-09-23T15:30:00Z"
+  },
+  {
+    "id": 124,
+    "transactionCode": "TX-20260924-024",
+    "amount": 977.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-24T16:30:00Z",
+    "updatedAt": "2026-09-24T16:30:00Z"
+  },
+  {
+    "id": 125,
+    "transactionCode": "TX-20260901-025",
+    "amount": 1014.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-01T09:30:00Z",
+    "updatedAt": "2026-09-01T09:30:00Z"
+  },
+  {
+    "id": 126,
+    "transactionCode": "TX-20260902-026",
+    "amount": 1051.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-02T10:30:00Z",
+    "updatedAt": "2026-09-02T10:30:00Z"
+  },
+  {
+    "id": 127,
+    "transactionCode": "TX-20260903-027",
+    "amount": 1089,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-03T11:30:00Z",
+    "updatedAt": "2026-09-03T11:30:00Z"
+  },
+  {
+    "id": 128,
+    "transactionCode": "TX-20260904-028",
+    "amount": 1126.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-04T12:30:00Z",
+    "updatedAt": "2026-09-04T12:30:00Z"
+  },
+  {
+    "id": 129,
+    "transactionCode": "TX-20260905-029",
+    "amount": 1163.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-05T13:30:00Z",
+    "updatedAt": "2026-09-05T13:30:00Z"
+  },
+  {
+    "id": 130,
+    "transactionCode": "TX-20260906-030",
+    "amount": 1200.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-06T14:30:00Z",
+    "updatedAt": "2026-09-06T14:30:00Z"
+  },
+  {
+    "id": 131,
+    "transactionCode": "TX-20260907-031",
+    "amount": 1238,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-07T15:30:00Z",
+    "updatedAt": "2026-09-07T15:30:00Z"
+  },
+  {
+    "id": 132,
+    "transactionCode": "TX-20260908-032",
+    "amount": 1275.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-08T16:30:00Z",
+    "updatedAt": "2026-09-08T16:30:00Z"
+  },
+  {
+    "id": 133,
+    "transactionCode": "TX-20260909-033",
+    "amount": 1312.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-09T09:30:00Z",
+    "updatedAt": "2026-09-09T09:30:00Z"
+  },
+  {
+    "id": 134,
+    "transactionCode": "TX-20260910-034",
+    "amount": 1349.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-10T10:30:00Z",
+    "updatedAt": "2026-09-10T10:30:00Z"
+  },
+  {
+    "id": 135,
+    "transactionCode": "TX-20260911-035",
+    "amount": 1387,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-11T11:30:00Z",
+    "updatedAt": "2026-09-11T11:30:00Z"
+  },
+  {
+    "id": 136,
+    "transactionCode": "TX-20260912-036",
+    "amount": 1424.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-12T12:30:00Z",
+    "updatedAt": "2026-09-12T12:30:00Z"
+  },
+  {
+    "id": 137,
+    "transactionCode": "TX-20260913-037",
+    "amount": 1461.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-13T13:30:00Z",
+    "updatedAt": "2026-09-13T13:30:00Z"
+  },
+  {
+    "id": 138,
+    "transactionCode": "TX-20260914-038",
+    "amount": 1498.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-14T14:30:00Z",
+    "updatedAt": "2026-09-14T14:30:00Z"
+  },
+  {
+    "id": 139,
+    "transactionCode": "TX-20260915-039",
+    "amount": 1536,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-15T15:30:00Z",
+    "updatedAt": "2026-09-15T15:30:00Z"
+  },
+  {
+    "id": 140,
+    "transactionCode": "TX-20260916-040",
+    "amount": 1573.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-16T16:30:00Z",
+    "updatedAt": "2026-09-16T16:30:00Z"
+  },
+  {
+    "id": 141,
+    "transactionCode": "TX-20260917-041",
+    "amount": 1610.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-17T09:30:00Z",
+    "updatedAt": "2026-09-17T09:30:00Z"
+  },
+  {
+    "id": 142,
+    "transactionCode": "TX-20260918-042",
+    "amount": 1647.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-18T10:30:00Z",
+    "updatedAt": "2026-09-18T10:30:00Z"
+  },
+  {
+    "id": 143,
+    "transactionCode": "TX-20260919-043",
+    "amount": 1685,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-19T11:30:00Z",
+    "updatedAt": "2026-09-19T11:30:00Z"
+  },
+  {
+    "id": 144,
+    "transactionCode": "TX-20260920-044",
+    "amount": 1722.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-20T12:30:00Z",
+    "updatedAt": "2026-09-20T12:30:00Z"
+  },
+  {
+    "id": 145,
+    "transactionCode": "TX-20260921-045",
+    "amount": 1759.5,
+    "brand": "VISA",
+    "publicEntity": {
+      "id": 1,
+      "name": "Prefeitura de Natal"
+    },
+    "status": "APPROVED",
+    "createdAt": "2026-09-21T13:30:00Z",
+    "updatedAt": "2026-09-21T13:30:00Z"
+  },
+  {
+    "id": 146,
+    "transactionCode": "TX-20260922-046",
+    "amount": 1796.75,
+    "brand": "MASTERCARD",
+    "publicEntity": {
+      "id": 2,
+      "name": "Governo do Estado"
+    },
+    "status": "PENDING",
+    "createdAt": "2026-09-22T14:30:00Z",
+    "updatedAt": "2026-09-22T14:30:00Z"
+  },
+  {
+    "id": 147,
+    "transactionCode": "TX-20260923-047",
+    "amount": 1834,
+    "brand": "ELO",
+    "publicEntity": {
+      "id": 3,
+      "name": "Prefeitura de Mossoró"
+    },
+    "status": "CANCELLED",
+    "createdAt": "2026-09-23T15:30:00Z",
+    "updatedAt": "2026-09-23T15:30:00Z"
+  },
+  {
+    "id": 148,
+    "transactionCode": "TX-20260924-048",
+    "amount": 1871.25,
+    "brand": "AMEX",
+    "publicEntity": {
+      "id": 4,
+      "name": "Câmara Municipal"
+    },
+    "status": "REFUNDED",
+    "createdAt": "2026-09-24T16:30:00Z",
+    "updatedAt": "2026-09-24T16:30:00Z"
+  }
+]
