@@ -15,6 +15,16 @@ go run ./cmd/api
 
 Sem `JWT_SECRET`, a API usa uma chave padrão exclusivamente para desenvolvimento local. Ela fica disponível em `http://localhost:8080`. Para outra porta, defina `PORT`; para outro diretório de dados, defina `DATA_DIR`.
 
+## API hospedada
+
+A instância publicada no Railway está disponível em [https://mini-dashboard-api-production.up.railway.app](https://mini-dashboard-api-production.up.railway.app).
+
+Teste rápido de disponibilidade:
+
+```text
+https://mini-dashboard-api-production.up.railway.app/health
+```
+
 Para rodar os testes:
 
 ```bash
@@ -25,7 +35,7 @@ Os testes usam cópias temporárias dos JSONs e não modificam `data/`.
 
 ## Insomnia
 
-Importe o arquivo [insomnia.json](./insomnia.json) no Insomnia (`Import > File`). Execute **Login — Desenvolvedor**, copie o valor de `accessToken` retornado e cole-o na variável `token` do ambiente **Local**. As demais requisições autenticadas passarão a usar o token automaticamente.
+Importe o arquivo [insomnia.json](./insomnia.json) no Insomnia (`Import > File`). Para testar a API hospedada, defina `base_url` no ambiente como `https://mini-dashboard-api-production.up.railway.app` (sempre com HTTPS). Execute **Login — Desenvolvedor**, copie o valor de `accessToken` retornado e cole-o na variável `token`. As demais requisições autenticadas passarão a usar o token automaticamente.
 
 ## Usuários de teste
 
